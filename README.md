@@ -69,13 +69,21 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 ### OpenCode
 
-Tell OpenCode:
+```bash
+# Clone to the standard config location
+git clone https://github.com/obra/superpowers.git ~/.config/opencode/superpowers
 
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.opencode/INSTALL.md
+# Run the installer
+~/.config/opencode/superpowers/install-opencode.sh
+
+# Restart OpenCode
 ```
 
-**Detailed docs:** [docs/README.opencode.md](docs/README.opencode.md)
+Skills are now available via OpenCode's native `skill` tool.
+
+**Note:** The installer will abort if it detects naming collisions with existing
+symlinks (e.g., another plugin installed an agent with the same name). Resolve
+collisions manually before re-running the installer.
 
 ## The Basic Workflow
 
@@ -143,10 +151,22 @@ See `skills/writing-skills/SKILL.md` for the complete guide.
 
 ## Updating
 
-Skills update automatically when you update the plugin:
+### Claude Code
 
 ```bash
 /plugin update superpowers
+```
+
+### OpenCode
+
+```bash
+cd ~/.config/opencode/superpowers && git pull && ./install-opencode.sh
+```
+
+### Uninstalling (OpenCode)
+
+```bash
+~/.config/opencode/superpowers/install-opencode.sh --uninstall
 ```
 
 ## License
